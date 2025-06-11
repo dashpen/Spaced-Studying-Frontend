@@ -1,5 +1,7 @@
 {
+  "type": "commonjs",
   "dependencies": {
+    "bootstrap": "^5.3.6",
     "ts-fsrs": "^5.0.1"
   }
 }
