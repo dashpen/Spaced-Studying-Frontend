@@ -23,7 +23,6 @@ document
         document.getElementById("loadingMessage").style.display = "none";
         console.log(response)
         if (!response.ok) {
-            // Check if the response status is in the error messages
             if (errorMessages[response.status]) {
                 const errorMessage = document.getElementById("errorMessage");
                 errorMessage.textContent = errorMessages[response.status];
@@ -37,11 +36,15 @@ document
       })
         .then((data) => {
         if (data) {
-          // Redirect to the dashboard or another page
-        //   window.location.href = "/dashboard.html";
             const successMessage = document.getElementById("successMessage");
             successMessage.textContent = "Login successful!";
             successMessage.style.display = "block";
+
+            sessionStorage.setItem("loggedIn", true)
+
+            sessionStorage.setItem("username", username);
+
+            window.location.href = "/dashboard.html";
         } else {
           // Display an error message
           const errorMessage = document.getElementById("errorMessage");

@@ -20,7 +20,6 @@ document
     })
       .then((response) => {
         if (!response.ok) {
-          // Check if the response status is in the error messages
           if (errorMessages[response.status]) {
             console.error("Error:", errorMessages[response.status], "With response: ", response.text());
             throw new Error(errorMessages[response.status]);
@@ -32,12 +31,11 @@ document
       })
       .then((data) => {
         if (data) {
-          // Redirect to the dashboard or another page
           const successMessage = document.getElementById("successMessage");
           successMessage.textContent = "Signup successful!";
           successMessage.style.display = "block";
+          window.location.href = "/login.html";
         } else {
-          // Display an error message
           throw new Error("Unknown error occurred during signup.");
         }
         })
